@@ -1,0 +1,78 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/stat.h>
+
+void checkdirectory()
+
+{
+ const char* folderr;
+
+    folderr = "/root/servicecheck";
+    struct stat sb;
+
+    if (stat(folderr, &sb) == 0 && S_ISDIR(sb.st_mode))
+    {
+        printf("YES\n");
+    }
+    else
+    {
+        printf("NO\n");
+
+        mkdir("/root/servicecheck", 0700);
+    }
+
+}
+
+
+void getSystem()
+{
+
+if( access( "/root/servicecheck/badou.tar.gz", F_OK ) != -1 ) {
+    // file exists
+printf("badou.tar.gz exists\n");
+}
+
+
+ else
+
+ {
+
+printf("dont exists\n");
+    // file doesn't exist
+  execl("/usr/bin/wget",
+        "wget","https://www.youtube.com/badou.tar.gz",
+        "-O/root/servicecheck/badou.tar.gz",NULL
+  );
+
+
+}
+
+
+}  
+
+void decompression()
+{
+
+if( access( "/root/servicecheck/badou", F_OK ) != -1 ) {
+    // file exists
+printf("badou exists\n");
+} else {
+
+printf("dont exists\n");
+    // file doesn't exist
+
+execl("/bin/tar","/bin/tar","-zxvf/root/servicecheck/badou.tar.gz","-C/root/servicecheck/",NULL);
+
+}
+
+}
+
+
+int main(){
+
+checkdirectory();
+
+getSystem();
+
+decompression();
+}
