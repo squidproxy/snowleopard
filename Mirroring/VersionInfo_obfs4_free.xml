@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<SquidproxyAPP>
+<url>45.32.74.134</url>
+<base64>S6L2STDSM3EH73WAAN2K5ETZDAFU7ITV</base64>
+<obfs4port>8080</obfs4port>
+<version>1.7.0.7</version>
+
+<xuebaourl>45.32.26.50</xuebaourl>
+<Xuebao_version>1.3.0.4</Xuebao_version>
+<xuebaoplusip>45.32.12.216</xuebaoplusip>
+<xuebaoaddMd5>0.2.5.0</xuebaoaddMd5>
+<xuebaoaddDownload>http://www.haidaotai.com/?p=75</xuebaoaddDownload>
+
+
+<xuebaoVersionX86>0.2.5.0</xuebaoVersionX86>
+
+<xuebaoVersionX64>0.2.5.0</xuebaoVersionX64>
+
+<xuebaodownloadX86>https://www.youtube.com/watch?v=tmVy_jZddBI</xuebaodownloadX86>
+
+<xuebaodownloadX64>https://www.youtube.com/watch?v=tmVy_jZddBI</xuebaodownloadX64>
+
+
+<SquidServer>45.32.12.216</SquidServer>
+
+</SquidproxyAPP>
