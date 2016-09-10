@@ -22,5 +22,6 @@
 
 
 <SquidServer>45.32.12.216</SquidServer>
+<SquidServerBak>127.0.0.1</SquidServerBak>
 
 </SquidproxyAPP>
