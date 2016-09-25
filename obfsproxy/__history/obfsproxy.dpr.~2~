@@ -1,0 +1,94 @@
+library obfsproxy;
+
+{ Important note about DLL memory management: ShareMem must be the
+  first unit in your library's USES clause AND your project's (select
+  Project-View Source) USES clause if your DLL exports any procedures or
+  functions that pass strings as parameters or function results. This
+  applies to all strings passed to and from your DLL--even those that
+  are nested in records and classes. ShareMem is the interface unit to
+  the BORLNDMM.DLL shared memory manager, which must be deployed along
+  with your DLL. To avoid using BORLNDMM.DLL, pass string information
+  using PChar or ShortString parameters. }
+
+uses
+  System.SysUtils,
+  winapi.windows,
+  System.Classes;
+
+ function RunDosCommand(Command: string): string;
+var
+  hReadPipe: THandle;
+  hWritePipe: THandle;
+  SI: TStartUpInfo;
+  PI: TProcessInformation;
+  SA: TSecurityAttributes;
+  // SD   :   TSecurityDescriptor;
+  BytesRead: DWord;
+  Dest: array [0 .. 1023] of char;
+  CmdLine: array [0 .. 512] of char;
+  TmpList: TStringList;
+  Avail, ExitCode, wrResult: DWord;
+  osVer: TOSVERSIONINFO;
+  tmpstr: AnsiString;
+begin
+  osVer.dwOSVersionInfoSize := Sizeof(TOSVERSIONINFO);
+  GetVersionEX(osVer);
+
+  if osVer.dwPlatformId = VER_PLATFORM_WIN32_NT then
+  begin
+    // InitializeSecurityDescriptor(@SD,   SECURITY_DESCRIPTOR_REVISION);
+    // SetSecurityDescriptorDacl(@SD,   True,   nil,   False);
+    SA.nLength := Sizeof(SA);
+    SA.lpSecurityDescriptor := nil; // @SD;
+    SA.bInheritHandle := True;
+    CreatePipe(hReadPipe, hWritePipe, @SA, 0);
+  end
+  else
+    CreatePipe(hReadPipe, hWritePipe, nil, 1024);
+  try
+    FillChar(SI, Sizeof(SI), 0);
+    SI.cb := Sizeof(TStartUpInfo);
+    SI.wShowWindow := SW_HIDE;
+    SI.dwFlags := STARTF_USESHOWWINDOW;
+    SI.dwFlags := SI.dwFlags or STARTF_USESTDHANDLES;
+    SI.hStdOutput := hWritePipe;
+    SI.hStdError := hWritePipe;
+    StrPCopy(CmdLine, Command);
+    if CreateProcess(nil, CmdLine, nil, nil, True, NORMAL_PRIORITY_CLASS, nil,
+      nil, SI, PI) then
+    begin
+      ExitCode := 0;
+
+      // if   PeekNamedPipe(hReadPipe,   nil,   0,   nil,   @Avail,   nil)   then
+      if PeekNamedPipe(hReadPipe, @Dest[0], 1024, @Avail, nil, nil) then
+      begin
+        if Avail > 0 then
+        begin
+          TmpList := TStringList.Create;
+          try
+            FillChar(Dest, Sizeof(Dest), 0);
+            ReadFile(hReadPipe, Dest[0], Avail, BytesRead, nil);
+            tmpstr := Copy(Dest, 0, BytesRead - 1);
+            TmpList.Text := tmpstr;
+            Result := tmpstr;
+          finally
+            TmpList.Free;
+          end;
+        end;
+      end;
+      // if wrResult <> WAIT_TIMEOUT then ExitCode := 1;
+    end;
+    GetExitCodeProcess(PI.hProcess, ExitCode);
+    CloseHandle(PI.hProcess);
+    CloseHandle(PI.hThread);
+
+  finally
+    CloseHandle(hReadPipe);
+    CloseHandle(hWritePipe);
+  end;
+end;
+
+{$R *.res}
+
+begin
+end.
