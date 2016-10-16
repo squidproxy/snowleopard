@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/10/15 04:40:22.000.463,=C:\Users\onionhacker\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2016/10/16 07:17:02.000.224,C:\Users\onionhacker\Documents\Embarcadero\Studio\Projects\Project5.dproj=F:\code\SnowLeopar\Sha256\Project5.dproj</Transaction>
+    <Transaction>2016/10/16 07:17:43.000.023,F:\code\SnowLeopar\Sha256\Project5.dproj=F:\code\SnowLeopar\Sha256\HashSHA256.dproj</Transaction>
+    <Transaction>2016/10/16 07:20:45.000.408,F:\code\SnowLeopar\Sha256\HashSHA256.dproj=F:\code\SnowLeopar\Sha256\SHA2.dproj</Transaction>
+    <Transaction>2016/10/16 11:37:04.000.872,F:\code\SnowLeopar\Sha256\SHA2.dproj=F:\code\SnowLeopar\Sha256\SHA2.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
