@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SQUID_VERSION=4.0.15
+SQUID_VERSION=3.5.20
 
 if [ "$(id -u)" != "0" ]; then
   echo "This script must be run as root" 1>&2
@@ -22,7 +22,7 @@ apt-get -y build-dep squid3
 
 echo "Download source code"
 cd /usr/src
-wget http://www.squid-cache.org/Versions/v4/squid-${SQUID_VERSION}.tar.gz
+wget http://www.squid-cache.org/Versions/v3/3.5/squid-${SQUID_VERSION}.tar.gz
 tar zxvf squid-${SQUID_VERSION}.tar.gz
 cd squid-${SQUID_VERSION}
 
@@ -59,7 +59,7 @@ echo "Create users database sample"
 htpasswd -c -b -d /etc/squid/passwords test test
 
 echo "Create service executable file"
-wget --no-check-certificate -O /etc/init.d/squid https://gist.githubusercontent.com/e7d/1f784339df82c57a43bf/raw/squid.sh
+wget --no-check-certificate -O /etc/init.d/squid https://raw.githubusercontent.com/squidproxy/snowleopard/master/init.sh
 chmod +x /etc/init.d/squid
 
 echo "Register service to startup entries"
