@@ -4,10 +4,6 @@
 snowleopard - 安全、混淆、匿名
 =========================
 
-A web deployment tool, Easy for configuration, Fully functional, Smooth interface, Out of the box. support git/svn Version 
-control system, no matter what language you are, php/java/ruby/python, just as jenkins. you can deploy the code or output to 
-multiple servers easily by walle.
-
 Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. 
 It reduces bandwidth and improves response times by caching and reusing frequently-requested web pages. Squid has extensive access controls and makes a great server accelerator.
  It runs on most available operating systems,
