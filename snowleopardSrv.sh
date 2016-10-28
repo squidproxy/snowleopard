@@ -54,10 +54,9 @@ tar zxvf squid-lib.tar.gz
 echo "Create configuration file"
 rm -fr /etc/squid/squid.conf
 wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/squidproxy/snowleopard/master/squid.conf
-htpasswd -c -b -d /etc/squid/passwords test test
+
 echo "Create users database sample"
-rm -fr /etc/squid/users.pwd
-htpasswd -c -b -d /etc/squid/users.pwd proxy proxy
+htpasswd -c -b -d /etc/squid/passwords test test
 
 echo "Create service executable file"
 wget --no-check-certificate -O /etc/init.d/squid https://gist.githubusercontent.com/e7d/1f784339df82c57a43bf/raw/squid.sh
