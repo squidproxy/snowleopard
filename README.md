@@ -1,23 +1,34 @@
 ![](https://raw.githubusercontent.com/squidproxy/snowleopard/master/docs/logo.jpg)
 
 
-snowleopard - 安全、混淆、匿名
+snowleopard - 可变形流量特征、高效稳定的TCP/IP加速方案
 =========================
 
-Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. 
-It reduces bandwidth and improves response times by caching and reusing frequently-requested web pages. Squid has extensive access controls and makes a great server accelerator.
+Squid Description: 
+
+  Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. 
+  It reduces bandwidth and improves response times by caching and reusing frequently-requested web pages. Squid has extensive access controls and makes a great server accelerator.
  It runs on most available operating systems,
  including Windows and is licensed under the GNU GPL.
  
-Description: Is a transport with the same features as ScrambleSuit but utilizing Dan Bernstein's elligator2 technique for public key obfuscation,
- and the ntor protocol for one-way authentication. This results in a faster protocol.
- https://img.shields.io/twitter/url/http/shields.io.svg?style=social
+obfourscator Description: 
+
+   This is a protocol obfuscation layer for TCP protocols.  Its purpose is to
+   keep a third party from telling what protocol is in use based on message
+   contents.
+
+   Unlike obfs3, obfs4 attempts to provide authentication and data integrity,
+   though it is still designed primarily around providing a layer of
+   obfuscation for an existing authenticated protocol like SSH or TLS.
+
+   Like obfs3 and ScrambleSuit, the protocol has 2 phases: in the first phase
+   both parties establish keys.  In the second, the parties exchange
+   super-enciphered traffic.
+   
  
 [官方主页](http://www.haidaotai.com) | [Twitter](https://twitter.com/squidgfw) | [谷歌社区](https://plus.google.com/communities/101513261063592651175).
 
 snowleopard X1Client
-
-已经有上千用户选择使用雪豹来加速他们的网络,除了提供稳定可靠的视频加速和安全加密技术,雪豹可以有效加速安卓和IOS设备。
 
 
 技术支持环境和网络
