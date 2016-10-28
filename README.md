@@ -4,6 +4,11 @@
 snowleopard - 可变形流量特征、高效稳定的TCP/IP加速方案
 =========================
 
+[![Packagist](https://img.shields.io/badge/Version-V1.3.1.9-blue.svg)](https://github.com/squidproxy/snowleopard/releases)
+
+[![Packagist](https://img.shields.io/badge/Desgin%20By-Dave%20feng-brightgreen.svg)] (ttps://twitter.com/squidgfw)
+
+
 Squid Description: 
 
   Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. 
