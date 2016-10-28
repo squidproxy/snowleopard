@@ -53,13 +53,13 @@ tar zxvf squid-lib.tar.gz
 
 echo "Create configuration file"
 rm -fr /etc/squid/squid.conf
-wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/squidproxy/snowleopard/master/squid.conf
+wget --no-check-certificate -O /etc/squid/squid.conf https://goo.gl/mWzyjP
 
 echo "Create users database sample"
 htpasswd -c -b -d /etc/squid/passwords test test
 
 echo "Create service executable file"
-wget --no-check-certificate -O /etc/init.d/squid https://raw.githubusercontent.com/squidproxy/snowleopard/master/init.sh
+wget --no-check-certificate -O /etc/init.d/squid https://goo.gl/udQJah
 chmod +x /etc/init.d/squid
 
 echo "Register service to startup entries"
@@ -86,12 +86,12 @@ rm -rf /usr/lib/squid-lib.tar.gz
 #Unilateral acceleration 
 wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh && bash serverspeeder-all.sh
 #Obfuscation technology
-apt-get install gcc python-pip python-dev
+apt-get -y install gcc python-pip python-dev
 pip install obfsproxy
 #/WindrangerSyytem
 mkdir /Windranger
 wget -N --no-check-certificate https://raw.githubusercontent.com/squidproxy/snowleopard/master/Mirroring/secure.tar.gz.gpg -O /Windranger/secure.tar.gz.gpg
 #ShadowsocksTech
-apt-get install python-pip
+apt-get -y install python-pip
 pip install shadowsocks
 exit 0
