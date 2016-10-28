@@ -11,12 +11,29 @@ It reduces bandwidth and improves response times by caching and reusing frequent
  
 Description: Is a transport with the same features as ScrambleSuit but utilizing Dan Bernstein's elligator2 technique for public key obfuscation,
  and the ntor protocol for one-way authentication. This results in a faster protocol.
+ https://img.shields.io/twitter/url/http/shields.io.svg?style=social
  
 [官方主页](http://www.haidaotai.com) | [Twitter](https://twitter.com/squidgfw) | [谷歌社区](https://plus.google.com/communities/101513261063592651175).
 
 snowleopard X1Client
 
+已经有上千用户选择使用雪豹来加速他们的网络,除了提供稳定可靠的视频加速和安全加密技术,雪豹可以有效加速安卓和IOS设备。
 
+
+技术支持环境和网络
+------------
+
+* Windows
+* IOS
+* Android
+* OSX
+
+服务端环境
+------------
+
+* Debian7+
+* Ununtu 14+
+ 
 
 服务端 X4
 Installation
