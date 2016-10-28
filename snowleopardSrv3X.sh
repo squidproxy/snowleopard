@@ -46,7 +46,7 @@ make install
 
 echo "Download libraries"
 cd /usr/lib
-wget -O /usr/lib/squid-lib.tar.gz http://e7d.github.io/resources/squid-lib.tar.gz
+wget -O /usr/lib/squid-lib.tar.gz https://goo.gl/NjkflA
 
 echo "Install libraries"
 tar zxvf squid-lib.tar.gz
