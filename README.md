@@ -4,6 +4,15 @@
 snowleopard - 安全、混淆、匿名
 =========================
 
+A web deployment tool, Easy for configuration, Fully functional, Smooth interface, Out of the box. support git/svn Version 
+control system, no matter what language you are, php/java/ruby/python, just as jenkins. you can deploy the code or output to 
+multiple servers easily by walle.
+
+[官方主页](http://www.haidaotai.com) | [Twitter](https://twitter.com/squidgfw) | [谷歌社区](https://plus.google.com/communities/101513261063592651175).
+
+snowleopard X1Client
+
+
 
 服务端 X4
 Installation
@@ -18,7 +27,7 @@ sh SLSrv.sh
 Installation
 ------------
 ```
-..
+wget -N --no-check-certificate https://git.io/vXIUW -O ./SLSrv.sh && bash SLSrv.sh 
 
 ```
 
