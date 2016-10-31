@@ -77,11 +77,11 @@ if [ `getconf LONG_BIT` = "64" ]
 then
     coloredEcho "ARCH: 64-bit" green
 
-  wget -N -O /usr/lib/squid/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_x86_64.tar.gz
+  wget -N -O /usr/lib/squid/squid-lib.tar.gz https://goo.gl/9NBE8g
 else
 	coloredEcho "ARCH: 32-bit" green
 
-wget -N -O /usr/lib/squid/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_i686.tar.gz
+wget -N -O /usr/lib/squid/squid-lib.tar.gz https://goo.gl/tBwURG
 
 fi
 
