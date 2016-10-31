@@ -81,8 +81,6 @@ chown -cR proxy /var/cache/squid
 chown -cR proxy /var/spool/squid
 squid -z
 
-echo "Start service"
-service squid start
 
 echo "Cleanup temporary files"
 rm -rf /etc/apt/sources.list.d/squid.list
@@ -90,10 +88,14 @@ rm -rf /usr/src/squid-${SQUID_VERSION}.tar.gz
 rm -rf /usr/src/squid-${SQUID_VERSION}
 rm -rf /usr/lib/squid-lib.tar.gz
 
+
+echo "Start service"
+service squid restart
+
 #Unilateral acceleration 
 wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh && bash serverspeeder-all.sh
 #Obfuscation technology
-apt-get -y install gcc python-pip python-dev
+apt-get -y install gcc python-pip python-dev -y
 pip install obfsproxy
 #/WindrangerSyytem
 mkdir /Windranger
