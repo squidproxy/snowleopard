@@ -76,11 +76,11 @@ if [ `getconf LONG_BIT` = "64" ]
 then
     coloredEcho "ARCH: 64-bit" green
 
-  wget -N -O /usr/lib/squid/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_x86_64.tar.gz
+  wget -N -O /usr/lib/squid/squid-lib.tar.gz https://goo.gl/9NBE8g
 else
 	coloredEcho "ARCH: 32-bit" green
 
-wget -N -O /usr/lib/squid/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_i686.tar.gz
+wget -N -O /usr/lib/squid/squid-lib.tar.gz https://goo.gl/tBwURG
 
 fi
 
@@ -92,8 +92,13 @@ coloredEcho "Create configuration file"
 rm -fr /etc/squid/squid.conf
 wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/squidproxy/snowleopard/master/squid.conf
 
+# Squid Safe authenticate
+# -c  Create a new password file
+# -b  Use the password from the command line rather than prompting for it.
+# -m Force MD5 encryption of the password (default)
 coloredEcho "Create users database sample" green
-htpasswd -c -b -d /etc/squid/passwords test test
+htpasswd -c -b -m /etc/squid/passwords test test
+
 
 coloredEcho "Create service executable file" green
 wget --no-check-certificate -O /etc/init.d/squid https://gist.githubusercontent.com/e7d/1f784339df82c57a43bf/raw/squid.sh
