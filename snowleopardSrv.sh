@@ -1,5 +1,26 @@
 #!/bin/sh
 
+function coloredEcho(){
+    local exp=$1;
+    local color=$2;
+    if ! [[ $color =~ '^[0-9]$' ]] ; then
+       case $(echo $color | tr '[:upper:]' '[:lower:]') in
+        black) color=0 ;;
+        red) color=1 ;;
+        green) color=2 ;;
+        yellow) color=3 ;;
+        blue) color=4 ;;
+        magenta) color=5 ;;
+        cyan) color=6 ;;
+        white|*) color=7 ;; # white or invalid color
+       esac
+    fi
+    tput setaf $color;
+    echo $exp;
+    tput sgr0;
+}
+
+
 SQUID_VERSION=4.0.15
 
 if [ "$(id -u)" != "0" ]; then
@@ -13,20 +34,26 @@ echo "deb-src http://httpredir.debian.org/debian stable main" >> /etc/apt/source
 echo "deb http://security.debian.org/ stable/updates main" >> /etc/apt/sources.list.d/squid.list
 echo "deb-src http://security.debian.org/ stable/updates main" >> /etc/apt/sources.list.d/squid.list
 
-echo "Update packages list"
+coloredEcho "Update packages list" green
+
 apt-get update
 
-echo "Build dependencies"
+coloredEcho "Build dependencies" green
+
 apt-get -y install build-essential libssl-dev apache2-utils
 apt-get -y build-dep squid3
 
-echo "Download source code"
+
+
+coloredEcho "Download source code" green
+
 cd /usr/src
 wget http://www.squid-cache.org/Versions/v4/squid-${SQUID_VERSION}.tar.gz
 tar zxvf squid-${SQUID_VERSION}.tar.gz
 cd squid-${SQUID_VERSION}
 
-echo "Build binaries"
+coloredEcho "Build binaries" green
+
 ./configure --prefix=/usr \
 	--localstatedir=/var/squid \
 	--libexecdir=${prefix}/lib/squid \
@@ -38,25 +65,29 @@ echo "Build binaries"
 	--with-pidfile=/var/run/squid.pid
 make
 
-echo "Stop running service"
+coloredEcho "Stop running service" green
+
 service squid stop
 
-echo "Install binaries"
+coloredEcho "Install binaries" green
+
 make install
 
-echo "Download libraries"
+coloredEcho "Download libraries" green
 
 cd /usr/lib
 
 if $(uname -m | grep '64'); then
-  echo "ARCH: 64-bit"
+coloredEcho "ARCH: 64-bit" green
+
   wget -N -O /usr/lib/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_x86_64.tar.gz
 else
-  echo "ARCH: 32-bit"
+	coloredEcho "ARCH: 32-bit" green
+
 wget -N -O /usr/lib/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_i686.tar.gz
 fi
+	coloredEcho "Install libraries" green
 
-echo "Install libraries"
 tar zxvf squid-lib.tar.gz
 
 echo "Create configuration file"
