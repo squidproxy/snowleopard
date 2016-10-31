@@ -20,7 +20,7 @@ function coloredEcho(){
     tput sgr0;
 }
 
-SQUID_VERSION=4.0.15
+SQUID_VERSION=4.0.16
 
 if [ "$(id -u)" != "0" ]; then
   coloredEcho "This script must be run as root" 1>&2
