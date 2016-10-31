@@ -77,16 +77,20 @@ coloredcoloredEcho "Download libraries" green
 
 cd /usr/lib
 
-if $(uname -m | grep '64'); then
-coloredcoloredEcho "ARCH: 64-bit" green
+
+if [ `getconf LONG_BIT` = "64" ]
+then
+    coloredcoloredEcho "ARCH: 64-bit" green
 
   wget -N -O /usr/lib/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_x86_64.tar.gz
 else
 	coloredcoloredEcho "ARCH: 32-bit" green
 
 wget -N -O /usr/lib/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_i686.tar.gz
+
 fi
-	coloredcoloredEcho "Install libraries" green
+
+
 
 tar zxvf squid-lib.tar.gz
 
