@@ -27,19 +27,12 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-coloredEcho "Add repositories to Aptitude"
-coloredEcho "deb http://httpredir.debian.org/debian stable main" > /etc/apt/sources.list.d/squid.list
-coloredEcho "deb-src http://httpredir.debian.org/debian stable main" >> /etc/apt/sources.list.d/squid.list
-coloredEcho "deb http://security.debian.org/ stable/updates main" >> /etc/apt/sources.list.d/squid.list
-coloredEcho "deb-src http://security.debian.org/ stable/updates main" >> /etc/apt/sources.list.d/squid.list
-
-coloredEcho "Update packages list" green
 
 apt-get update
 
 coloredEcho "Build dependencies" green
 
-apt-get -y install build-essential libssl-dev apache2-utils
+apt-get -y install build-essential libssl-dev apache2-utils apache2
 apt-get -y build-dep squid3
 
 
