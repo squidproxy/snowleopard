@@ -46,7 +46,14 @@ make install
 
 echo "Download libraries"
 cd /usr/lib
-wget -O /usr/lib/squid-lib.tar.gz https://goo.gl/NjkflA
+if $(uname -m | grep '64'); then
+  echo "ARCH: 64-bit"
+  wget -N -O /usr/lib/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_x86_64.tar.gz
+else
+  echo "ARCH: 32-bit"
+wget -N -O /usr/lib/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_i686.tar.gz
+fi
+
 
 echo "Install libraries"
 tar zxvf squid-lib.tar.gz
