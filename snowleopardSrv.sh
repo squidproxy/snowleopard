@@ -1,10 +1,10 @@
 #!/bin/sh
 
-function coloredcoloredEcho(){
+function coloredEcho(){
     local exp=$1;
     local color=$2;
     if ! [[ $color =~ '^[0-9]$' ]] ; then
-       case $(coloredEcho $color | tr '[:upper:]' '[:lower:]') in
+       case $(echo $color | tr '[:upper:]' '[:lower:]') in
         black) color=0 ;;
         red) color=1 ;;
         green) color=2 ;;
@@ -16,10 +16,9 @@ function coloredcoloredEcho(){
        esac
     fi
     tput setaf $color;
-    coloredEcho $exp;
+    echo $exp;
     tput sgr0;
 }
-
 
 SQUID_VERSION=4.0.15
 
@@ -34,25 +33,25 @@ coloredEcho "deb-src http://httpredir.debian.org/debian stable main" >> /etc/apt
 coloredEcho "deb http://security.debian.org/ stable/updates main" >> /etc/apt/sources.list.d/squid.list
 coloredEcho "deb-src http://security.debian.org/ stable/updates main" >> /etc/apt/sources.list.d/squid.list
 
-coloredcoloredEcho "Update packages list" green
+coloredEcho "Update packages list" green
 
 apt-get update
 
-coloredcoloredEcho "Build dependencies" green
+coloredEcho "Build dependencies" green
 
 apt-get -y install build-essential libssl-dev apache2-utils
 apt-get -y build-dep squid3
 
 
 
-coloredcoloredEcho "Download source code" green
+coloredEcho "Download source code" green
 
 cd /usr/src
 wget http://www.squid-cache.org/Versions/v4/squid-${SQUID_VERSION}.tar.gz
 tar zxvf squid-${SQUID_VERSION}.tar.gz
 cd squid-${SQUID_VERSION}
 
-coloredcoloredEcho "Build binaries" green
+coloredEcho "Build binaries" green
 
 ./configure --prefix=/usr \
 	--localstatedir=/var/squid \
@@ -65,26 +64,26 @@ coloredcoloredEcho "Build binaries" green
 	--with-pidfile=/var/run/squid.pid
 make
 
-coloredcoloredEcho "Stop running service" green
+coloredEcho "Stop running service" green
 
 service squid stop
 
-coloredcoloredEcho "Install binaries" green
+coloredEcho "Install binaries" green
 
 make install
 
-coloredcoloredEcho "Download libraries" green
+coloredEcho "Download libraries" green
 
 cd /usr/lib
 
 
 if [ `getconf LONG_BIT` = "64" ]
 then
-    coloredcoloredEcho "ARCH: 64-bit" green
+    coloredEcho "ARCH: 64-bit" green
 
   wget -N -O /usr/lib/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_x86_64.tar.gz
 else
-	coloredcoloredEcho "ARCH: 32-bit" green
+	coloredEcho "ARCH: 32-bit" green
 
 wget -N -O /usr/lib/squid-lib.tar.gz https://raw.githubusercontent.com/squidproxy/snowleopard/master/Squid_lib/squid_lib_i686.tar.gz
 
