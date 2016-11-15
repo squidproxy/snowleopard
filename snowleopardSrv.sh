@@ -20,7 +20,7 @@ function coloredEcho(){
     tput sgr0;
 }
 
-SQUID_VERSION=4.0.16
+SQUID_VERSION=4.0.16-20161110-r14932
 
 if [ "$(id -u)" != "0" ]; then
   coloredEcho "This script must be run as root" 1>&2
@@ -40,6 +40,7 @@ apt-get -y build-dep squid3
 coloredEcho "Download source code" green
 
 cd /usr/src
+
 wget http://www.squid-cache.org/Versions/v4/squid-${SQUID_VERSION}.tar.gz
 tar zxvf squid-${SQUID_VERSION}.tar.gz
 cd squid-${SQUID_VERSION}
