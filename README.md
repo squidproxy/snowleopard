@@ -59,8 +59,6 @@ Installation
 ```
 wget -N --no-check-certificate  https://git.io/vXTHY  -O ./SLSrv.sh && bash SLSrv.sh 
 
-sh SLSrv.sh
-
 ```
 服务端 X3
 Installation
@@ -91,15 +89,21 @@ wget -N --no-check-certificate https://git.io/vXIUW -O ./SLSrv.sh && bash SLSrv.
 
 
 ###  安全架构
-> 许可证验证系统(SHA-2)
+> 许可证验证系统(SHA-3)
 >
 > > squid验证
 >
->  > >  RC4加密
+>  > >  RC6加密
 >
 > > > > obfsproxy加密
 
-## 1.2.0.4.更新日志
+## 服务器更新日志
+
+* [11/26/2016] Squid升级到4.0.16-20161125-r14941
+
+## 客户端更新日志
+
+* [11/26/2016]添加特性: 使用SHA3散列函数提高许可证的安全性能
 
 * 加入对ADSl网络环境的支持
 * 修正了0.2.1 delphi内存管理dll扩展文件缺失的bug
