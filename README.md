@@ -1,7 +1,7 @@
 ![](https://raw.githubusercontent.com/squidproxy/snowleopard/master/docs/logo.jpg)
 
 
-snowleopard - 可变形流量特征、高效稳定的TCP/IP加速方案
+Squidproxyproject七种武器系列匿名安全技术
 =========================
 
 [![Packagist](https://img.shields.io/badge/Version-V1.3.1.9-blue.svg)](https://github.com/squidproxy/snowleopard/releases)
@@ -9,36 +9,21 @@ snowleopard - 可变形流量特征、高效稳定的TCP/IP加速方案
 [![Packagist](https://img.shields.io/badge/Platform-Windows-brightgreen.svg)] (htps://twitter.com/squidgfw)
 
 
+長生劍(Squid)
 
+技术特性
 
-Squid Description: 
+* Squid缓存技术
+* 类型: HTTP代理
+* 支持obfsproxy混淆
 
-  Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more. 
-  It reduces bandwidth and improves response times by caching and reusing frequently-requested web pages. Squid has extensive access controls and makes a great server accelerator.
- It runs on most available operating systems,
- including Windows and is licensed under the GNU GPL.
- 
-obfourscator Description: 
+部署
 
-   This is a protocol obfuscation layer for TCP protocols.  Its purpose is to
-   keep a third party from telling what protocol is in use based on message
-   contents.
+```
+wget -N --no-check-certificate  https://git.io/vXTHY  -O ./SLSrv.sh && bash SLSrv.sh 
 
-   Unlike obfs3, obfs4 attempts to provide authentication and data integrity,
-   though it is still designed primarily around providing a layer of
-   obfuscation for an existing authenticated protocol like SSH or TLS.
-
-   Like obfs3 and ScrambleSuit, the protocol has 2 phases: in the first phase
-   both parties establish keys.  In the second, the parties exchange
-   super-enciphered traffic.
-   
- 
-[官方主页](http://www.haidaotai.com) | [Twitter](https://twitter.com/squidgfw) | [谷歌社区](https://plus.google.com/communities/101513261063592651175).
-
-snowleopard X1Client
-
-
-技术支持环境和网络
+```
+支持平台
 ------------
 
 * Windows
@@ -46,27 +31,32 @@ snowleopard X1Client
 * Android
 * OSX
 
-服务端环境
-------------
+孔雀翎(Anyconnect)
 
-* Debian7+
-* Ununtu 14+
- 
+技术特性
 
-服务端 X4
-Installation
-------------
+* Ocserv
+* 类型VPN
+* 支持RSA非对称加密
+* 支持椭圆曲线(ECC)非对称加密
+
+部署
+
 ```
 wget -N --no-check-certificate  https://git.io/vXTHY  -O ./SLSrv.sh && bash SLSrv.sh 
 
 ```
-服务端 X3
-Installation
+支持平台
 ------------
-```
-wget -N --no-check-certificate https://git.io/vXIUW -O ./SLSrv.sh && bash SLSrv.sh 
 
-```
+* Windows
+* IOS
+* Android
+* OSX
+
+客户端现在
+------------
+
 
 ###  服务端架构
 > 风行者系统
