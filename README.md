@@ -9,7 +9,7 @@ Squidproxyproject七种武器系列匿名安全技术
 [![Packagist](https://img.shields.io/badge/Platform-Windows-brightgreen.svg)] (htps://twitter.com/squidgfw)
 
 
-長生劍(Squid)
+==長生劍(Squid)==
 
 技术特性
 
@@ -31,7 +31,7 @@ wget -N --no-check-certificate  https://git.io/vXTHY  -O ./SLSrv.sh && bash SLSr
 * Android
 * OSX
 
-孔雀翎(Anyconnect)
+==孔雀翎(Anyconnect)
 
 技术特性
 
@@ -43,7 +43,7 @@ wget -N --no-check-certificate  https://git.io/vXTHY  -O ./SLSrv.sh && bash SLSr
 部署
 
 ```
-wget -N --no-check-certificate  https://git.io/vXTHY  -O ./SLSrv.sh && bash SLSrv.sh 
+wget -N --no-check-certificate  https://git.io/vD69Z  -O ./ocserv.sh && bash ocserv.sh 
 
 ```
 支持平台
@@ -54,8 +54,9 @@ wget -N --no-check-certificate  https://git.io/vXTHY  -O ./SLSrv.sh && bash SLSr
 * Android
 * OSX
 
-客户端现在
+客户端下载
 ------------
+
 
 
 ###  服务端架构
