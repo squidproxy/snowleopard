@@ -21,7 +21,7 @@ Squidproxyproject七种武器系列匿名安全技术
 部署
 
 ```
-wget -N --no-check-certificate  https://git.io/vXTHY  -O ./SLSrv.sh && bash SLSrv.sh 
+wget -N --no-check-certificate https://git.io/vD67J  -O ./SLSrv.sh && bash SLSrv.sh 
 
 ```
 支持平台
